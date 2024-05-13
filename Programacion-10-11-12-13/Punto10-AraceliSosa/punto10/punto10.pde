@@ -18,5 +18,10 @@ void draw() {
   stroke(#229B37);
   line(0,-height/2,0,height/2);
 
-  
+   stroke(0);
+  point(ptoA.x,ptoA.y);
+  point(ptoB.x,ptoB.y);
+  point(ptoC.x,ptoC.y);
+  point(0,10);
+  vector.display();
 }

@@ -18,6 +18,10 @@ public void calcularD(){
 }
 
 public void display(){
- 
+ line(ptoA.x,ptoA.y,ptoB.x,ptoB.y);
+ line(ptoB.x,ptoB.y,ptoC.x,ptoC.y);
+ line(ptoC.x,ptoC.y,ptoD.x,ptoD.y);
+ line(ptoD.x,ptoD.y,ptoA.x,ptoA.y);
+ point(ptoD.x,ptoD.y);
  }
 }
