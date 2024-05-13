@@ -1,35 +1,23 @@
 class Vector{
-PVector origen;
-PVector destino; 
+private PVector ptoA;
+private PVector ptoB;
+private PVector ptoC;
+private PVector ptoD;
 
 
-public Vector(){
-
+public Vector(PVector ptoA, PVector ptoB, PVector ptoC){
+   this.ptoA = ptoA;
+   this.ptoB = ptoB;
+   this.ptoC = ptoC;
+   calcularD();
 }
 
-public Vector(PVector origen, PVector destino){
-this.origen = origen;
-this.destino = destino;
+public void calcularD(){
+  PVector vectorBC = PVector.sub(ptoC, ptoB);
+  ptoD = PVector.add(ptoA, vectorBC);
 }
 
 public void display(){
-
-line(origen.x,origen.y,origen.x+destino.x,origen.y+destino.y);
  
-}
-
-
-public void setOrigen(PVector origen){
-this.origen= origen;
-}
-public PVector getOrigen(){
-return this.origen;
-}
-public void setDestino(PVector destino){
-this.destino= destino;
-}
-public PVector getDestino(){
-return this.destino;
-}
-
+ }
 }

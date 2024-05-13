@@ -1,17 +1,22 @@
-Vector vector1;
-Vector vector2;
+private Vector vector;
 
-public void setup(){
-size(600,600);
- vector1= new Vector(new PVector(0,0), new PVector(100,100));
- vector2= new Vector(new PVector(0,0), new PVector(200,50));
+private PVector ptoA = new PVector(-12,-20);
+private PVector ptoB = new PVector(40,-10);
+private PVector ptoC = new PVector(50,20);
+
+void setup() {
+  size(600, 600);
+  vector = new Vector (ptoA,ptoB, ptoC);
 }
 
-public void draw(){
-  translate(width/2,height/2);
+void draw() {
+  translate(width/2, height/2);
   background(255);
-  vector1.display();
-  vector2.display();
-  
+  strokeWeight(1);
+  stroke(#DE1D1D);
+  line(-width/2,0,width/2,0);
+  stroke(#229B37);
+  line(0,-height/2,0,height/2);
 
+  
 }
