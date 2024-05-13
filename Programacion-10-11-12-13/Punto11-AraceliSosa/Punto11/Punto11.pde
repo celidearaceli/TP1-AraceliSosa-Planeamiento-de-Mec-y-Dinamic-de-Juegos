@@ -26,10 +26,12 @@ public void draw(){
   personaje.resize(70,70);
   imageMode(CENTER);
   image(personaje,mouseX,mouseY);
+  vEnemigo.getDestino().normalize();
   vPersonaje.display();
   vEnemigo.display();
-  dibujarEnemigo();
   dibujarVecEnemigoPje();
+  dibujarEnemigo();
+  
   detectar();
 
 }
