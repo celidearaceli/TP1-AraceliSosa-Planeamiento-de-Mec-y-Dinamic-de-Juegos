@@ -9,8 +9,8 @@ private PVector posicionEnemigo;
 
 public void setup(){
   size(600,600);
-  vPersonaje = new Vector(new PVector(0,0),new PVector(20,0));
-  vEnemigo = new Vector(new PVector(0,0), new PVector(50,0));
+  vPersonaje = new Vector(new PVector(0,0),new PVector(30,0));
+  vEnemigo = new Vector(new PVector(0,0), new PVector(60,0));
   vEnemigoPje = new Vector();
   personaje = loadImage("./personaje.png");
   enemigo = loadImage("./enemigo.png");
@@ -24,7 +24,7 @@ public void draw(){
   background(escenario);
   vEnemigo.setOrigen(posicionEnemigo);
   vPersonaje.setOrigen(new PVector(mouseX,mouseY));
-  personaje.resize(70,70);
+  personaje.resize(100,80);
   imageMode(CENTER);
   image(personaje,mouseX,mouseY);
   vEnemigo.getDestino().normalize();
@@ -52,8 +52,8 @@ public void dibujarVecEnemigoPje(){
 public void detectar(){
   float productoPunto = vEnemigo.obtenerProductoPunto(vEnemigoPje);
   fill(255);
-  text(productoPunto,20,350);
+  text(productoPunto,200,200);
   if(productoPunto>0.866f){
-    text("detectado",100,40);
+    text("detectado",200,190);
   }
 }
