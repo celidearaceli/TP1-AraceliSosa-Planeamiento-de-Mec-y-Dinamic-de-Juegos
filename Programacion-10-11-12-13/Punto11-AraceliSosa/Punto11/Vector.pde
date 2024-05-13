@@ -11,7 +11,12 @@ class Vector{
   }
   
   public void display(){
-    
+     strokeWeight(3);
+    line(origen.x,origen.y,origen.x+destino.x,origen.y+destino.y);
+  }
+  
+  public float obtenerProductoPunto(Vector vector){
+    return PVector.dot(this.getDestino(),vector.getDestino());
   }
   
   public void setOrigen(PVector origen){

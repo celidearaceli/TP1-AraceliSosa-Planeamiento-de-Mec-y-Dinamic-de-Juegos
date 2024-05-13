@@ -21,13 +21,16 @@ public void draw(){
    escenario.resize(600,600);
   imageMode(CENTER);
   background(escenario);
+  vEnemigo.setOrigen(posicionEnemigo);
   vPersonaje.setOrigen(new PVector(mouseX,mouseY));
   personaje.resize(70,70);
   imageMode(CENTER);
   image(personaje,mouseX,mouseY);
   vPersonaje.display();
+  vEnemigo.display();
   dibujarEnemigo();
   dibujarVecEnemigoPje();
+  detectar();
 
 }
 
@@ -43,4 +46,12 @@ public void dibujarVecEnemigoPje(){
   vEnemigoPje.setOrigen(posicionEnemigo);
   vEnemigoPje.setDestino(PVector.sub(vPersonaje.getOrigen(),posicionEnemigo).normalize());
   vEnemigoPje.display();
+}
+public void detectar(){
+  float productoPunto = vEnemigo.obtenerProductoPunto(vEnemigoPje);
+  fill(255);
+  text(productoPunto,20,350);
+  if(productoPunto>0.866f){
+    text("detectado",100,40);
+  }
 }
