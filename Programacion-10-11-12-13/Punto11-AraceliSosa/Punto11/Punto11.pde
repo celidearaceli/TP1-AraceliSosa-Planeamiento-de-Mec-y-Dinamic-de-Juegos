@@ -5,6 +5,8 @@ private PImage escenario;
 private PImage enemigo;
 private PImage personaje;
 private PVector posicionEnemigo;
+private PVector posicionBolaFuego;
+private BolaFuego bolaFuego;
 
 
 public void setup(){
@@ -16,6 +18,8 @@ public void setup(){
   enemigo = loadImage("./enemigo.png");
   escenario = loadImage("./escenario.png");
   posicionEnemigo = new PVector(width/2,height/2);
+  posicionBolaFuego = new PVector(width/2,height/2);
+
 }
 
 public void draw(){
@@ -33,7 +37,10 @@ public void draw(){
   dibujarVecEnemigoPje();
   dibujarEnemigo();
   detectar();
- 
+  if (bolaFuego != null) {
+  bolaFuego.mover();
+  bolaFuego.display();
+}
 
 }
 
@@ -55,5 +62,7 @@ public void detectar(){
   text(productoPunto,200,200);
   if(productoPunto>0.866f){
     text("detectado",200,190);
+    bolaFuego = new BolaFuego(posicionBolaFuego, PVector.sub(vPersonaje.getOrigen(), posicionEnemigo),new PVector(10,0));
+
   }
 }
