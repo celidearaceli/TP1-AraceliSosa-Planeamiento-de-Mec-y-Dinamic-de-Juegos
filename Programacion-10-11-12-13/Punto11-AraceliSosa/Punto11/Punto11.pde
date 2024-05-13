@@ -6,6 +6,7 @@ private PImage enemigo;
 private PImage personaje;
 private PVector posicionEnemigo;
 
+
 public void setup(){
   size(600,600);
   vPersonaje = new Vector(new PVector(0,0),new PVector(20,0));
@@ -31,15 +32,14 @@ public void draw(){
   vEnemigo.display();
   dibujarVecEnemigoPje();
   dibujarEnemigo();
-  
   detectar();
+ 
 
 }
 
 public void dibujarEnemigo(){
   enemigo.resize(120,120);
   imageMode(CENTER);
-  image(enemigo,10,20);
   image(enemigo, posicionEnemigo.x,posicionEnemigo.y);
 
 }
