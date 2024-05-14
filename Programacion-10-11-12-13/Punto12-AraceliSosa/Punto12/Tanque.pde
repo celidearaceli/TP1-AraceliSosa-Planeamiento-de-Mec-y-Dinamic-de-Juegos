@@ -81,20 +81,19 @@ class Tanque{
   }
     void move(int direccion) {
     switch (direccion) {
-      case 1: // Arriba
+      case 1: 
         posicion.y -= velocidad.y;
         break;
-      case 2: // Derecha
+      case 2:
         posicion.x += velocidad.x;
         break;
-      case 3: // Abajo
+      case 3: 
         posicion.y += velocidad.y;
         break;
-      case 4: // Izquierda
+      case 4: 
         posicion.x -= velocidad.x;
         break;
     }
-   // this.direccion = direccion - 1; // Actualizar la direccion del tanque
   }
   
   
