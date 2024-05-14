@@ -13,6 +13,44 @@ class Tanque{
     this.imagen= loadImage("personaje.png");
   
   }
+    public boolean esVisible (TanqueRival tanqueRival){
+    boolean esVisible = false;
+    PVector direccionDeTanqueRivalVector = PVector.sub(tanqueRival.getPosicion(),this.posicion);
+    direccionDeTanqueRivalVector.normalize();
+  
+    PVector direcciontoViewVector= new PVector();
+  
+    switch(this.direccion){
+      case 0:{
+        direcciontoViewVector = new PVector(0,-1,0);
+        break;
+      }
+    }
+  
+    float dotProduct = PVector.dot(direcciontoViewVector,direccionDeTanqueRivalVector);
+    if (dotProduct > 0.8){
+      esVisible = true;
+      spin(direcciontoViewVector,direccionDeTanqueRivalVector);
+    }
+    return esVisible;
+  }
+  
+   public void spin(PVector direcciontoViewVector,PVector direccionDeFuelVector){
+    float angle = PVector.angleBetween(direcciontoViewVector,direccionDeFuelVector);
+    PVector rotationAxys = direcciontoViewVector.cross(direccionDeFuelVector);
+    int clockWise =1;
+  
+    if (rotationAxys.z < 0){
+      clockWise=-1;
+    }
+  
+    pushMatrix();
+    imageMode(CENTER);
+    translate(this.posicion.x,this.posicion.y);
+    rotate(angle*clockWise);
+    image(this.imagen,0,0,this.imagen.width* 0.10,this.imagen.height* 0.10);
+    popMatrix();
+  }
  
   
   public void setPosicion(PVector posicion){
